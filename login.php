@@ -18,7 +18,7 @@
   </form>
   
   <br>
-  Need an account?
+  Don't have an account?
   <a href="signup.php">Sign up</a>
 </body>
 </html>
