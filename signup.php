@@ -8,6 +8,9 @@
 <body>
 
   <?php 
+
+    session_start();
+
     $fname = $lname = $email = $password = "";
     $fnameErr = $lnameErr = $emailErr = $passwordErr = "";
 
@@ -63,6 +66,7 @@
         }
       }
 
+      //Everything is valid, store user in db
       if($valid) {
         $servername = "localhost";
         $username = "root";
@@ -82,8 +86,12 @@
 
         $sql = "INSERT INTO users (fname, lname, email, password)
         VALUES ('$fname', '$lname', '$email', '$password')";
+        
         if(mysqli_query($conn, $sql)){
-          echo "Insert Successful";
+          $last_id = mysqli_insert_id($conn);
+          $_SESSION['fname'] = $fname;
+
+          echo "<script>alert('Insert Successful')</script>";
           header("Location: registration_complete.php");
         } else {
           echo "Something went wrong";
