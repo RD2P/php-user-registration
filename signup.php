@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign up</title>
 </head>
 <body>
 
@@ -62,7 +63,32 @@
         }
       }
 
-      if($valid) header("Location: registration_complete.php");
+      if($valid) {
+        $servername = "localhost";
+        $username = "root";
+        $dbname = "registration";
+
+        $conn = mysqli_connect($servername, $username,  "", $dbname);
+
+        if(!$conn){
+          die("Connection failed: " . mysqli_connect_error()); 
+        }
+
+        //escape special chars
+        $fname = mysqli_real_escape_string($conn, $fname);
+        $lname = mysqli_real_escape_string($conn, $lname);
+        $email = mysqli_real_escape_string($conn, $email);
+        $password = mysqli_real_escape_string($conn, $password);
+
+        $sql = "INSERT INTO users (fname, lname, email, password)
+        VALUES ('$fname', '$lname', '$email', '$password')";
+        if(mysqli_query($conn, $sql)){
+          echo "Insert Successful";
+          header("Location: registration_complete.php");
+        } else {
+          echo "Something went wrong";
+        }
+      }
 
     }
   ?>
@@ -72,12 +98,12 @@
   <form method="POST" action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>">
       
       <label for="fname">First name</label><br>
-      <input type="text" id="fname" name="fname" maxlength="30" value="<?php echo $fname?>"/>
+      <input type="text" id="fname" name="fname" maxlength="50" value="<?php echo $fname?>"/>
       <span>* <?php echo $fnameErr;?></span>
       <br>
       
-      <label for="lname" maxlength="30">Last name</label><br>
-      <input type="text" id="lname" name="lname" value="<?php echo $lname;?>"/>
+      <label for="lname" >Last name</label><br>
+      <input type="text" id="lname" name="lname" maxlength="50" value="<?php echo $lname;?>"/>
       <span>* <?php echo $lnameErr;?></span>
       <br>
       
