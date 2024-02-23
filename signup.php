@@ -73,27 +73,22 @@
       
       <label for="fname">First name</label><br>
       <input type="text" id="fname" name="fname" maxlength="30" value="<?php echo $fname?>"/>
-      <!-- required -->
-      <span><?php echo $fnameErr;?></span>
+      <span>* <?php echo $fnameErr;?></span>
       <br>
       
       <label for="lname" maxlength="30">Last name</label><br>
       <input type="text" id="lname" name="lname" value="<?php echo $lname;?>"/>
-      <!-- required -->
-      <span><?php echo $lnameErr;?></span>
+      <span>* <?php echo $lnameErr;?></span>
       <br>
       
       <label for="email">Email</label><br>
       <input type="text" id="email" name="email" value="<?php echo $email;?>"/>
-      <!-- type=email -->
-      <!-- required -->
-      <span><?php echo $emailErr;?></span>
+      <span>* <?php echo $emailErr;?></span>
       <br>
       
       <label for="Password">Password</label><br>
       <input type="password" id="password" name="password"/>
-      <!-- required -->
-      <span><?php echo $passwordErr;?></span>
+      <span>* <?php echo $passwordErr;?></span>
       
       <br><br>
 
