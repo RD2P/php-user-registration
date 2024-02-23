@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Welcome</title>
 </head>
 <body>
-  Hey <?php echo $fname;?>welcome to you dashboard
+  <?php
+    session_start();
+  ?>
+  Hey <?php echo $_SESSION['fname'];?> welcome to you dashboard
 </body>
 </html>
