@@ -11,11 +11,22 @@
 
     session_start();
 
+    //Connect to db
+    $servername = "localhost";
+    $username = "root";
+    $dbname = "registration";
+
+    $conn = mysqli_connect($servername, $username,  "", $dbname);
+
+    if(!$conn){
+      die("Connection failed: " . mysqli_connect_error()); 
+    }
+
+    //init form field inputs and errors 
     $fname = $lname = $email = $password = "";
     $fnameErr = $lnameErr = $emailErr = $passwordErr = "";
 
     if($_SERVER['REQUEST_METHOD']=="POST"){
-
       $valid = true;
       
       //First name validation
@@ -52,6 +63,13 @@
           $emailErr = "Invalid email format";
           $valid = false;
         }
+        //check if email is in use
+        $email_rows = mysqli_query($conn, "SELECT * FROM users WHERE email='$email'");
+        
+        if(mysqli_num_rows($email_rows) > 0){
+          $emailErr = "Email already in use";
+          $valid = false;
+        }
       }
 
       //Password validation
@@ -66,17 +84,8 @@
         }
       }
 
-      //Everything is valid, store user in db
+      //Everything is valid
       if($valid) {
-        $servername = "localhost";
-        $username = "root";
-        $dbname = "registration";
-
-        $conn = mysqli_connect($servername, $username,  "", $dbname);
-
-        if(!$conn){
-          die("Connection failed: " . mysqli_connect_error()); 
-        }
 
         //escape special chars
         $fname = mysqli_real_escape_string($conn, $fname);
@@ -84,13 +93,7 @@
         $email = mysqli_real_escape_string($conn, $email);
         $password = mysqli_real_escape_string($conn, $password);
 
-        //check if email is in use
-        $email_rows = mysqli_query($conn, "SELECT email FROM users WHERE email='$email'");
-        
-        if(mysqli_num_rows($email_rows) > 0){
-          $emailErr = "Email already in use";
-        }
-
+        //insert query
         $sql = "INSERT INTO users (fname, lname, email, password)
         VALUES ('$fname', '$lname', '$email', '$password')";
         
