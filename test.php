@@ -3,14 +3,14 @@
 
    $conn = mysqli_connect('localhost', 'root',  "", 'registration');
 
-   $sql = "SELECT * FROM users WHERE email='john@gmail.com'";
+   $email_rows = mysqli_query($conn, "SELECT email FROM users WHERE email='john@gmail.com'");
 
-   $result = mysqli_fetch_array(mysqli_query($conn, $sql));
-   // $result = mysqli_fetch_array($result);
+   echo mysqli_fetch_array($email_rows)[0];
 
-   // foreach($row as $val){
-   //    echo $val . '<br>';
+   echo '<br>';
+
+   echo mysqli_num_rows($email_rows);
+   // if(mysqli_num_rows($email_rows) > 0){
+   //   $emailErr = "Email already in use";
    // }
-
-   echo $result['email'];
 ?>

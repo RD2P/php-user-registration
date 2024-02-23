@@ -84,11 +84,17 @@
         $email = mysqli_real_escape_string($conn, $email);
         $password = mysqli_real_escape_string($conn, $password);
 
+        //check if email is in use
+        $email_rows = mysqli_query($conn, "SELECT email FROM users WHERE email='$email'");
+        
+        if(mysqli_num_rows($email_rows) > 0){
+          $emailErr = "Email already in use";
+        }
+
         $sql = "INSERT INTO users (fname, lname, email, password)
         VALUES ('$fname', '$lname', '$email', '$password')";
         
         if(mysqli_query($conn, $sql)){
-          $last_id = mysqli_insert_id($conn);
           $_SESSION['fname'] = $fname;
 
           echo "<script>alert('Insert Successful')</script>";
