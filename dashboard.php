@@ -1,3 +1,6 @@
+  <?php
+    session_start();
+  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +9,15 @@
   <title>Welcome</title>
 </head>
 <body>
+  Hey <?php echo $_SESSION['fname'];?> welcome to your dashboard <br>
+  <form action="dashboard.php" method="POST">
+    <input type="submit" name="logout" value="Logout"/>
+  </form>
   <?php
-    session_start();
+    if(isset($_POST['logout'])){
+      session_destroy();
+      header("Location: login.php");
+    }
   ?>
-  Hey <?php echo $_SESSION['fname'];?> welcome to you dashboard
 </body>
 </html>
