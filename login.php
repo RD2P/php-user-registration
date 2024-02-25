@@ -71,19 +71,32 @@
   ?>
   <div class="max-w-lg mx-auto mt-24 border border-spacing-1 bg-slate-50 p-3">
 
-    <form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>" class="flex flex-col justify-between h-56 ">
-      <input type="text" id="email" name="email" placeholder="email" value="<?php echo $email ?? ''; ?>" class="border border-black-200 p-2"/>
-      <span class="mb-2 pl-2"><?php echo $emailErr ?? '';?></span>
+    <form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>" class="flex flex-col gap-y-4">
+      <input 
+        type="text" 
+        id="email" 
+        name="email" 
+        placeholder="email" 
+        value="<?php echo $email ?? ''; ?>" 
+        class="border border-black-200 p-2 focus:outline-none focus:border-green-500"/>
 
-      <input type="password" id="password" name="password" placeholder="password" class="border border-black-200 p-2"/>
-      <span class=" mb-2 pl-2"><?php echo $passwordErr ?? '';?></span>
+      <span class="m-0 pl-2 text-red-300"><?php echo $emailErr ?? ''?></span>
+      
+      <input 
+        type="password" 
+        id="password" 
+        name="password" 
+        placeholder="password" 
+        class="border border-black-200 p-2 focus:outline-none focus:border-green-500"/>
 
-      <input type="submit" value="Login" class="bg-green-500 py-4 px-8"/>
+      <span class="m-0 pl-2 text-red-300"><?php echo $passwordErr ?? ''?></span>
+      
+      <input type="submit" value="Login" class="text-gray-900 text-lg bg-green-500 py-4 px-8 cursor-pointer hover:bg-green-400"/>
     </form>
     
     <br>
 
-    <div class="">
+    <div class="pl-2">
       <span>Don't have an account?</span>
       <a href="signup.php" class="text-blue-500">Sign up</a>
     </div>
