@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>Sign up</title>
 </head>
 <body>
@@ -74,7 +75,7 @@
 
       //Password validation
       if(empty($_POST['password'])){
-        $passwordErr = "Please type in a password";
+        $passwordErr = "Please provide a password";
         $valid = false;
       } else {
         $password = $_POST['password'];
@@ -110,32 +111,56 @@
     }
   ?>
 
-  <h2>Sign up</h2>
-
-  <form method="POST" action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>">
-      
-      <label for="fname">First name</label><br>
-      <input type="text" id="fname" name="fname" maxlength="50" value="<?php echo $fname?>"/>
-      <span>* <?php echo $fnameErr;?></span>
+  <div class="max-w-lg mx-auto mt-24 border border-spacing-1 bg-slate-50 p-3">
+    <form 
+      method="POST" 
+      action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>"
+      class="flex flex-col gap-y-4">
+    
+        <input 
+          type="text" 
+          id="fname" 
+          name="fname" 
+          maxlength="50" 
+          placeholder="First name *"
+          value="<?php echo $fname?>"
+          class="border border-black-200 p-2 focus:outline-none focus:border-green-500"/>
+        <span class="m-0 pl-2 text-red-300"><?php echo $fnameErr;?></span>
+    
+        <input 
+          type="text" 
+          id="lname" 
+          name="lname" 
+          maxlength="50" 
+          placeholder="Last name *"
+          value="<?php echo $lname;?>"
+          class="border border-black-200 p-2 focus:outline-none focus:border-green-500"/>
+        <span class="m-0 pl-2 text-red-300"><?php echo $lnameErr;?></span>
+    
+        <input 
+          type="text" 
+          id="email" 
+          name="email" 
+          placeholder="Email *"
+          value="<?php echo $email;?>"
+          class="border border-black-200 p-2 focus:outline-none focus:border-green-500"/>
+        <span class="m-0 pl-2 text-red-300"><?php echo $emailErr;?></span>
+    
+        <input 
+          type="password" 
+          id="password" 
+          placeholder="Password *"
+          name="password"
+          class="border border-black-200 p-2 focus:outline-none focus:border-green-500"/>
+        <span class="m-0 pl-2 text-red-300"><?php echo $passwordErr;?></span>
+    
+        <input type="submit" value="Sign up!" class="text-gray-900 text-lg bg-green-500 py-4 px-8 cursor-pointer hover:bg-green-400"/>
+      </form>
       <br>
-      
-      <label for="lname" >Last name</label><br>
-      <input type="text" id="lname" name="lname" maxlength="50" value="<?php echo $lname;?>"/>
-      <span>* <?php echo $lnameErr;?></span>
-      <br>
-      
-      <label for="email">Email</label><br>
-      <input type="text" id="email" name="email" value="<?php echo $email;?>"/>
-      <span>* <?php echo $emailErr;?></span>
-      <br>
-      
-      <label for="Password">Password</label><br>
-      <input type="password" id="password" name="password"/>
-      <span>* <?php echo $passwordErr;?></span>
-      
-      <br><br>
-
-      <input type="submit" value="Sign up!"/>
-    </form>
+      <div class="pl-2">
+      <span>Already have an account?</span>
+      <a href="login.php" class="text-blue-500">Log in</a>
+    </div>
+  </div>
 </body>
 </html>
