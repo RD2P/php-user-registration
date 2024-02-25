@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>Login</title>
 </head>
 <body>
@@ -68,23 +69,21 @@
   }
 
   ?>
-  <h2>LOGIN</h2>
-  <form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>">
+  <div class="max-w-lg mx-auto mt-16 border border-spacing-1 bg-slate-50">
 
-    <label for="email">Email</label><br>
-    <input type="text" id="email" name="email" value="<?php echo $email ?? ''; ?>"/>
-    <span>* <?php echo $emailErr ?? '';?></span>
+    <form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>" class="flex flex-col justify-between">
+      <input type="text" id="email" name="email" placeholder="email" value="<?php echo $email ?? ''; ?>" class="border border-black-200"/>
+      <span>* <?php echo $emailErr ?? '';?></span>
+      <br><br>
+      <input type="password" id="password" name="password" placeholder="password" class="border border-black-200"/>
+      <span>* <?php echo $passwordErr ?? '';?></span>
+      <br><br>
+      <input type="submit" value="Login" class="bg-green-500 py-4 px-8"/>
+    </form>
+    
     <br>
-    <label for="Password">Password</label><br>
-    <input type="password" id="password" name="password"/>
-    <span>* <?php echo $passwordErr ?? '';?></span>
-    <br><br>
-
-    <input type="submit" value="Login"/>
-  </form>
-  
-  <br>
-  Don't have an account?
-  <a href="signup.php">Sign up</a>
+    <span>Don't have an account?</span>
+    <a href="signup.php">Sign up</a>
+  </div>
 </body>
 </html>
