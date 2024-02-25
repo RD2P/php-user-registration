@@ -76,7 +76,7 @@
         type="text" 
         id="email" 
         name="email" 
-        placeholder="email" 
+        placeholder="Email *" 
         value="<?php echo $email ?? ''; ?>" 
         class="border border-black-200 p-2 focus:outline-none focus:border-green-500"/>
 
@@ -86,7 +86,7 @@
         type="password" 
         id="password" 
         name="password" 
-        placeholder="password" 
+        placeholder="Password *" 
         class="border border-black-200 p-2 focus:outline-none focus:border-green-500"/>
 
       <span class="m-0 pl-2 text-red-300"><?php echo $passwordErr ?? ''?></span>
