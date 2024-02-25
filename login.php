@@ -69,21 +69,25 @@
   }
 
   ?>
-  <div class="max-w-lg mx-auto mt-16 border border-spacing-1 bg-slate-50">
+  <div class="max-w-lg mx-auto mt-24 border border-spacing-1 bg-slate-50 p-3">
 
-    <form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>" class="flex flex-col justify-between">
-      <input type="text" id="email" name="email" placeholder="email" value="<?php echo $email ?? ''; ?>" class="border border-black-200"/>
-      <span>* <?php echo $emailErr ?? '';?></span>
-      <br><br>
-      <input type="password" id="password" name="password" placeholder="password" class="border border-black-200"/>
-      <span>* <?php echo $passwordErr ?? '';?></span>
-      <br><br>
+    <form method="POST" action="<?php echo $_SERVER['PHP_SELF'];?>" class="flex flex-col justify-between h-56 ">
+      <input type="text" id="email" name="email" placeholder="email" value="<?php echo $email ?? ''; ?>" class="border border-black-200 p-2"/>
+      <span class="mb-2 pl-2"><?php echo $emailErr ?? '';?></span>
+
+      <input type="password" id="password" name="password" placeholder="password" class="border border-black-200 p-2"/>
+      <span class=" mb-2 pl-2"><?php echo $passwordErr ?? '';?></span>
+
       <input type="submit" value="Login" class="bg-green-500 py-4 px-8"/>
     </form>
     
     <br>
-    <span>Don't have an account?</span>
-    <a href="signup.php">Sign up</a>
+
+    <div class="">
+      <span>Don't have an account?</span>
+      <a href="signup.php" class="text-blue-500">Sign up</a>
+    </div>
+
   </div>
 </body>
 </html>
