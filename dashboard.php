@@ -31,11 +31,11 @@
       Write a post
     </button>
     
-    <form id="write-post-form" class="flex flex-col justify-between">
+    <form id="write-post-form" class="hidden flex flex-col justify-between">
       <div class="">
         <textarea 
           placeholder="Write a new post..."
-          class="border border-1 p-2 text-lg w-full min-h-32"></textarea>
+          class="border border-1 p-2 text-lg w-full min-h-32 focus:outline-none focus:border-green-500"></textarea>
       </div>
       <div class="flex justify-end">
         <input
