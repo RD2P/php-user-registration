@@ -1,8 +1,3 @@
-<!-- <?php 
-  echo 'test';
-  echo 'test';
-?> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
