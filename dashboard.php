@@ -49,7 +49,7 @@
 
   </section>
   <main >
-
+    <?php include 'get_posts.php';?>
   </main>
 
 
