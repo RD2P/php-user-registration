@@ -12,6 +12,7 @@
   <title>Document</title>
 </head>
 <body>
+  <?php include 'test.php';?>
   <br><br>
   <article class="flex flex-col max-w-xl mx-auto border border-t-2 p-4">
     <section class="flex items-center">
