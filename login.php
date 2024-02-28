@@ -56,6 +56,7 @@
         if($password == $result['password']){
           $_SESSION['fname'] = $result['fname'];
           $_SESSION['email'] = $email;
+          $_SESSION['db_connection'] = $conn;
           header("Location: dashboard.php");
         } else {
           $passwordErr = "Incorrect password";
