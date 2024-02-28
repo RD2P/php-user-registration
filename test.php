@@ -5,8 +5,12 @@
 
    foreach($names as $key => $name) {
 
-      echo "<h4 class='font-bold text-lg text-green-700'>{$name}</h4>";
-      echo "<span>&nbsp;&#183; {$dates[$key]}</span>";
-      echo "<section>{$posts[$key]}</section>";
+      echo "<article class='flex flex-col max-w-xl mx-auto border border-t-2 p-4'>
+               <section class='flex items-center>
+                  <h4 class='font-semibold text-lg text-green-700'>{$name}</h4>
+                  <span>&nbsp;&#183; {$dates[$key]}</span>
+               </section>
+               <section>{$posts[$key]}</section>
+            </article>";
    }
 ?>
