@@ -1,6 +1,4 @@
-
-<?php 
-        
+<?php     
   $servername = "localhost";
   $username = "root";
   $dbname = "registration";
