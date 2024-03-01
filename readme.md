@@ -2,6 +2,8 @@
 
 This PHP project provides a user authentication and registration system with a dashboard for users to manage and create posts. It uses a MySQL database to store user information and posts.
 
+The UI is styled with TailwindCSS using the [Tailwind cli](https://tailwindcss.com/blog/standalone-cli). The bash script `tw.sh` calls the tailwind executible and converts the classes in the markup into CSS in the `style.css`.
+
 ## Features
 
 - User login: Users can log in using their email and password.
@@ -21,6 +23,7 @@ This PHP project provides a user authentication and registration system with a d
 - PHP 8
 - MySQL
 - TailwindCSS
+- JavaScript
 
 ## Future work
 
