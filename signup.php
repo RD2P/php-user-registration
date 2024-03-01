@@ -107,7 +107,6 @@
           echo "Something went wrong";
         }
       }
-
     }
   ?>
 
