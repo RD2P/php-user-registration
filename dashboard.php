@@ -45,18 +45,12 @@
           value="Post"
           class="bg-green-300 p-3 hover:bg-green-100 cursor-pointer text-lg mb-3"/>
       </div>
-
-
     </form>
-
   </section>
+  
   <main >
     <?php include 'get_posts.php';?>
   </main>
-
-
-
-
 
   <?php
     if(isset($_POST['logout'])){
