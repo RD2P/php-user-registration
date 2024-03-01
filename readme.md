@@ -20,6 +20,18 @@ This PHP project provides a user authentication and registration system with a d
 
 - PHP 8
 - MySQL
+- TailwindCSS
+
+## Future work
+
+This project was meant to refamiliarize myself with PHP, MySQL, and their development paradigm. However, I see myself adding just a few more features to make it feel a bit more complete. These features include:
+
+- Passwords are not stored in the db but instead are put through a hashing algorithm
+- Users can delete their own posts
+- Users can comment on posts
+- Posts are saved into the db with a date in which they were inserted
+- Users can 'like' posts
+- Users can search and filter posts 
 
 ## Author
 
