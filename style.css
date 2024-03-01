@@ -548,9 +548,18 @@ video {
   margin: 0px;
 }
 
+.m-3 {
+  margin: 0.75rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .mb-3 {
@@ -563,6 +572,22 @@ video {
 
 .mt-24 {
   margin-top: 6rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.mt-14 {
+  margin-top: 3.5rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
 }
 
 .flex {
@@ -591,6 +616,10 @@ video {
 
 .max-w-xl {
   max-width: 36rem;
+}
+
+.max-w-80 {
+  max-width: 20rem;
 }
 
 .border-spacing-1 {
